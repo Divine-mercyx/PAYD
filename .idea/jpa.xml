@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="PAYD" name="PAYD" framework="JPA" ormUnit="PAYD:PAYD" defaultDataSourceId="8b2d325c-a4a6-401b-a20e-38a88d402e83" />
+    </persistence-units>
+  </component>
+</project>
