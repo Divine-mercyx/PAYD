@@ -8,10 +8,9 @@ import org.web3j.protocol.http.HttpService;
 @Configuration
 public class Web3jConfig {
 
-    private String polygonUrl = "https://polygon-rpc.com";
-
     @Bean
     public Web3j web3j() {
+        String polygonUrl = "https://polygon-rpc.com";
         return Web3j.build(new HttpService(polygonUrl));
     }
 }

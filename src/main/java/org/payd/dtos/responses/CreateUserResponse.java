@@ -12,5 +12,11 @@ public record CreateUserResponse(
         String fullname,
 
         @NotBlank(message = "polygon address is required")
-        String walletAddress
+        String walletAddress,
+
+        @NotBlank(message = "access token is required")
+        String accessToken,
+
+        @NotBlank(message = "refresh token is required")
+        String refreshToken
 ) {}
