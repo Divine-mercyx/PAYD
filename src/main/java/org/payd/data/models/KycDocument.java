@@ -5,22 +5,36 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "kyc_documents")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Table(
+        name = "kyc_documents",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "user_id")
+        }
+)
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class KycDocument {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    private String idType; // "NIN", "BVN", "PASSPORT"
-    private String idNumber; // Encrypted string
-    private String verificationStatus; // "VERIFIED", "FAILED", "RETRY_REQUIRED"
-    private String providerReference; // The ID from SmileID/YouVerify
-    private String documentImageUrl; // Link to Supabase Storage (if applicable)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private IdType idType; // NIN, BVN, PASSPORT
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private KycStatus verificationStatus;
+
+    @Column(nullable = false, unique = true)
+    private String kycReferenceId;
 
     private LocalDateTime verifiedAt;
 }

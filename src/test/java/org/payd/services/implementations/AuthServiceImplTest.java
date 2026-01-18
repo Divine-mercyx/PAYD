@@ -9,6 +9,7 @@ import org.payd.dtos.responses.CreateUserResponse;
 import org.payd.services.interfaces.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,14 +30,15 @@ class AuthServiceImplTest {
 //        authService.deleteAllUsers();
 //    }
 
-    @AfterEach
-    void tearDown() {
-        authService.deleteAllUsers();
-    }
+//    @AfterEach
+//    void tearDown() {
+//        authService.deleteAllUsers();
+//    }
 
     @Test
+    @Commit
     void createAccount() throws Exception {
-        CreateUserRequest request = new CreateUserRequest("divine@gmail.com", "divine mercy", "Aa11@abcdef");
+        CreateUserRequest request = new CreateUserRequest("divineobinali@gmail.com", "divine mercy", "Aa11@abcdef");
         CreateUserResponse response = authService.createAccount(request);
         assertNotNull(response);
         assertNotNull(response.walletAddress());

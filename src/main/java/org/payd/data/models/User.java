@@ -28,6 +28,8 @@ public class User {
     @Column(unique = true)
     private String polygonAddress;
 
+    private String encryptedPrivateKey;
+
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
