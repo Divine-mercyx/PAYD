@@ -16,7 +16,6 @@ import java.util.function.Function;
 public class JwtUtils {
 
     private final String secretKey = "abskasvbakjsbdvjad9671231j2eiu1u2gei12e";
-
     private final long ACCESS_TOKEN_EXPIRY = 900_000;    // 15 Minutes
     private final long REFRESH_TOKEN_EXPIRY = 604_800_000; // 7 Days
     private final long FORGET_PASSWORD_EXPIRY = 900_000;    // 15 Minutes

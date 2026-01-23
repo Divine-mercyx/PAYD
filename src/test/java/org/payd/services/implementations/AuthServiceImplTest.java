@@ -1,7 +1,6 @@
 package org.payd.services.implementations;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.payd.dtos.requests.CreateUserRequest;
 import org.payd.dtos.requests.LoginUserRequest;
@@ -38,7 +37,7 @@ class AuthServiceImplTest {
     @Test
     @Commit
     void createAccount() throws Exception {
-        CreateUserRequest request = new CreateUserRequest("divineobinali@gmail.com", "divine mercy", "Aa11@abcdef");
+        CreateUserRequest request = new CreateUserRequest("divineobinali9@gmail.com", "divine mercy", "Aa11@abcdef");
         CreateUserResponse response = authService.createAccount(request);
         assertNotNull(response);
         assertNotNull(response.walletAddress());

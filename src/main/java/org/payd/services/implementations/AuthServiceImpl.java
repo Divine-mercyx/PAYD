@@ -48,12 +48,6 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public void deleteAllUsers() {
-        balanceRepository.deleteAll();
-        userRepository.deleteAll();
-    }
-
-    @Override
     public CreateUserResponse login(LoginUserRequest request) {
         User user = validateRequest(request);
         return Mapper.toCreateUserResponse(user, jwtUtils.generateTokenPair(user.getId()));
@@ -77,6 +71,12 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(passwordEncoder.encode(request.newPassword()));
         userRepository.save(user);
         return true;
+    }
+
+    @Override
+    public void deleteAllUsers() {
+        balanceRepository.deleteAll();
+        userRepository.deleteAll();
     }
 
 

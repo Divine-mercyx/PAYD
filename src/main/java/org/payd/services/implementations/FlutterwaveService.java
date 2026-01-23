@@ -13,7 +13,7 @@ import java.util.Map;
 public class FlutterwaveService {
 
     private final WebClient webClient;
-    private final String secretKey = "[YOUR_FLUTTERWAVE_SECRET_KEY]";
+    private final String secretKey = "[FLUTTERWAVE_SECRET_KEY]";
 
     public FlutterwaveService(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("https://api.flutterwave.com")
@@ -30,7 +30,6 @@ public class FlutterwaveService {
                 "reference", reference
         );
 
-        // Make the POST request to the Flutterwave Payouts API
         return webClient.post()
                 .uri("transfers")
                 .bodyValue(requestBody)

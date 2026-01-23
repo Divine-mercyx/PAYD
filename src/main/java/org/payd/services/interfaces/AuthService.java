@@ -7,7 +7,6 @@ import org.payd.dtos.requests.ResetPasswordRequest;
 import org.payd.dtos.responses.CreateUserResponse;
 
 public interface AuthService {
-
     CreateUserResponse createAccount(CreateUserRequest request) throws Exception;
     void deleteAllUsers();
     CreateUserResponse login(LoginUserRequest request);
